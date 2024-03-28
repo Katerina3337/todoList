@@ -1,12 +1,12 @@
 <template>
-  <button class="button">Кнопка</button>
+  <button class="button">Добавить задачу</button>
 </template>
 
 <style scoped>
 .button {
   font-family: var(--font-main);
   font-size: 15px;
-  max-width: 300px;
+  max-width: 200px;
   min-width: 100px;
   max-height: 45px;
   padding: 8px 20px;

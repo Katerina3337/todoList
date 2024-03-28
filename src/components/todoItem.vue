@@ -9,8 +9,8 @@ import CheckedIcon from "@/components/icons/CheckedIcon.vue";
     <p class="todo__task">Task text</p>
     <div class="todo__icons">
       <EditIcon class="todo__icon todo__edit-icon"/>
-      <CheckboxIcon class="todo__icon"/>
-      <CheckedIcon class="todo__icon"/>
+      <CheckboxIcon class="todo__icon todo__delete-icon"/>
+      <CheckedIcon class="todo__icon todo__delete-icon"/>
     </div>
   </div>
 
@@ -33,18 +33,13 @@ import CheckedIcon from "@/components/icons/CheckedIcon.vue";
   color: var(--color-white);
 }
 
-.todo__icons {
-  display: flex;
-}
-
-.todo__icon {
-  width: 30px;
-  cursor: pointer;
-}
-
 .todo__edit-icon {
   margin-right: 0.7rem;
-  width: 25px;
+  width: 20px;
   fill: var(--color-white);
+}
+
+.todo__delete-icon {
+  fill: var(--color-danger);
 }
 </style>

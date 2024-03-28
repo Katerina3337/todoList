@@ -8,12 +8,15 @@
   font-weight: normal;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* Icons */
+
+.todo__icons {
+  display: flex;
+}
+
+.todo__icon {
+  width: 25px;
+  cursor: pointer;
 }
 
 @media (hover: hover) {

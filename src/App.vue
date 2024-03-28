@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import todoButton from '@/components/todoButton.vue';
-import todoItem from '@/components/todoItem.vue';
+import todoList from '@/components/todoList.vue';
+import todoFilters from '@/components/todoFilters.vue';
 </script>
 
 <template>
   <div class="todo">
     <div class="container">
-      <h1 class="todo__title">todo<span>List</span> </h1>
+      <h1 class="todo__title">todo<span>List</span></h1>
+      <div class="todo__tabs">
+        <todoFilters></todoFilters>
+        <todoList></todoList>
+      </div>
     </div>
   </div>
-  <todoButton></todoButton>
-  <todoItem></todoItem>
+
 </template>
 
 <style scoped>
@@ -21,11 +24,17 @@ import todoItem from '@/components/todoItem.vue';
 }
 
 .todo__title {
+  margin-bottom: 45px;
   color: var(--color-white);
 }
 
 .todo__title span {
   font-weight: bold;
   color: var(--color-accent);
+}
+
+.todo__tabs {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
