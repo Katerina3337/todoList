@@ -17,9 +17,11 @@ import todoButton from '@/components/todoButton.vue';
 .todo__tasks {
   display: flex;
   flex-direction: column;
-  max-width: 780px;
-  min-width: 780px;
+  min-height: 500px;
+  max-width: 765px;
+  min-width: 765px;
   padding: 20px 30px;
+  position: relative;
   background-color: #18181c;
   border-radius: 15px;
 }
@@ -30,7 +32,9 @@ import todoButton from '@/components/todoButton.vue';
 }
 
 .todo__button {
-  float: right;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
 }
 
 </style>

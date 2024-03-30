@@ -14,6 +14,7 @@ import todoFilter from '@/components/todoFilter.vue';
 .todo__filters {
   display: flex;
   flex-direction: column;
+  min-height: 500px;
   width: 390px;
   padding: 20px 30px;
   background-color: #18181c;
