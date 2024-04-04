@@ -1,6 +1,22 @@
+<script setup>
+defineProps({
+  buttonText: {
+    type: String,
+    required: true,
+    default: 'Добавить',
+  },
+  isCancelButton: {
+    type: Boolean,
+    required: false,
+  },
+})
+</script>
+
 <template>
-  <button class="button">Добавить задачу</button>
+  <button class="button" :class="{cancel: isCancelButton}">{{ buttonText }}</button>
 </template>
+
+
 
 <style scoped>
 .button {
@@ -17,7 +33,15 @@
   cursor: pointer;
 }
 
+.cancel {
+  background: linear-gradient(130deg, rgb(250, 97, 97) 0%, rgb(220, 27, 27) 100%);
+}
+
 .button:hover {
   box-shadow: 0 0 5px rgba(192, 91, 243, 0.77);
+}
+
+.cancel:hover {
+  box-shadow: 0 0 5px rgba(243, 91, 91, 0.77);
 }
 </style>

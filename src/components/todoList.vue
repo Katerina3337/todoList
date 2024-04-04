@@ -1,14 +1,30 @@
 <script setup>
 import todoItem from '@/components/todoItem.vue';
 import todoButton from '@/components/todoButton.vue';
+import TodoModal from '@/components/TodoModal.vue';
+import {ref} from "vue";
+
+const isShowModal = ref(false);
+const buttonText = ref('Добавить');
+const showModal = () => {
+  isShowModal.value = true;
+}
+const closeModal = () => {
+  isShowModal.value = false;
+}
 </script>
 
 <template>
   <div class="todo__tasks">
     <h3 class="todo__title">Задачи</h3>
     <todoItem></todoItem>
+    <todoModal
+        v-if="isShowModal"
+        :button-text="buttonText"
+        @close-modal="closeModal"
+    />
     <div>
-      <todoButton class="todo__button"></todoButton>
+      <todoButton class="todo__button" @click="showModal"></todoButton>
     </div>
   </div>
 </template>

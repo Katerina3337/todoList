@@ -2,15 +2,33 @@
 import EditIcon from '@/components/icons/EditIcon.vue';
 import CheckboxIcon from "@/components/icons/CheckboxIcon.vue";
 import CheckedIcon from "@/components/icons/CheckedIcon.vue";
+import TodoModal from '@/components/TodoModal.vue';
+
+import { ref } from 'vue';
+
+const isShowModal = ref(false);
+const buttonText = ref('Редактировать');
+const showModal = () => {
+  isShowModal.value = true;
+}
+const closeModal = () => {
+  isShowModal.value = false;
+}
 </script>
 
 <template>
   <div class="todo__item">
     <p class="todo__task">Task text</p>
     <div class="todo__icons">
-      <EditIcon class="todo__icon todo__edit-icon"/>
+      <EditIcon class="todo__icon todo__edit-icon" @click="showModal"/>
       <CheckboxIcon class="todo__icon todo__delete-icon"/>
       <CheckedIcon class="todo__icon todo__delete-icon"/>
+      <TodoModal
+          v-if="isShowModal"
+          :button-text="buttonText"
+          :is-show-modal="isShowModal"
+          @close-modal="closeModal"
+      />
     </div>
   </div>
 

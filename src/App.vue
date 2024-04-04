@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import todoList from '@/components/todoList.vue';
 import todoFilters from '@/components/todoFilters.vue';
-import TodoModal from '@/components/TodoModal.vue';
+
 </script>
 
 <template>
@@ -11,7 +11,6 @@ import TodoModal from '@/components/TodoModal.vue';
       <div class="todo__tabs">
         <todoFilters></todoFilters>
         <todoList></todoList>
-        <TodoModal/>
       </div>
     </div>
   </div>

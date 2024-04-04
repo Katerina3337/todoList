@@ -1,22 +1,34 @@
 <script setup>
-import todoButton from '@/components/todoButton.vue';
 import TodoButton from "@/components/todoButton.vue";
+import CancelIcon from '@/components/icons/CancelIcon.vue';
+
+defineProps({
+  buttonText: {
+    type: String,
+    required: true,
+    default: 'Добавить',
+  },
+  isShowModal: {
+    type: Boolean,
+  }
+})
 </script>
 
 <template>
 <div class="todo__modal-layout">
   <div class="todo__modal">
+    <CancelIcon class="todo__icon" @click="$emit('closeModal')"/>
     <div class="todo__modal--text-field">
       <label class="todo__modal--label" for="title">Название задачи</label>
       <input class="todo__modal--input" type="text">
     </div>
     <div class="todo__modal--text-field">
-      <label class="todo__modal--label" for="title">Название задачи</label>
+      <label class="todo__modal--label" for="title">Описание задачи</label>
       <textarea class="todo__modal--textarea" type="text" rows="10"></textarea>
     </div>
     <div class="todo__buttons">
-      <todo-button/>
-      <todo-button/>
+      <todo-button class="todo__modal--button" :button-text="buttonText"/>
+      <todo-button button-text="Отмена" :is-cancel-button="true" @click="$emit('closeModal')"/>
     </div>
   </div>
 </div>
@@ -42,6 +54,7 @@ import TodoButton from "@/components/todoButton.vue";
   width: 600px;
   height: 450px;
   padding: 30px;
+  position: relative;
   background-color: #404062;
   border-radius: 30px;
 }
@@ -74,5 +87,16 @@ import TodoButton from "@/components/todoButton.vue";
 .todo__buttons {
   margin-top: 1.5rem;
   margin-left: auto;
+}
+
+.todo__icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  fill: #cabbe8;
+}
+
+.todo__modal--button {
+  margin-right: 25px;
 }
 </style>
