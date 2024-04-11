@@ -8,6 +8,13 @@ import TodoModal from '@/components/TodoModal.vue';
 
 import { ref } from 'vue';
 
+defineProps({
+  todoItem: {
+    type: Object,
+    required: true,
+  }
+})
+
 const isShowModal = ref(false);
 const buttonText = ref('Редактировать');
 const isTaskDone = ref(false);
@@ -31,7 +38,7 @@ const closeModal = () => {
         <CircleIcon class="todo__icon" v-if="!isTaskDone" @click="changeTaskStatus"/>
         <CircleCheckedIcon class="todo__icon" v-else @click="changeTaskStatus"/>
       </div>
-      <p class="todo__task">Task text</p>
+      <p class="todo__task">{{ todoItem.title }}</p>
     </div>
     <div class="todo__icons">
       <EditIcon class="todo__icon todo__edit-icon" @click="showModal"/>

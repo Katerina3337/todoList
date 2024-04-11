@@ -12,12 +12,25 @@ const showModal = () => {
 const closeModal = () => {
   isShowModal.value = false;
 }
+
+const todoList = ref([]);
+
+const addTodoItem = () => {
+  let randomString = Math.random().toString()
+  randomString = randomString.slice(2, randomString.length);
+  const todoItem = {
+    id: randomString,
+    title: 'Название задачи',
+    description: 'Описание задачи',
+  }
+  todoList.value.push(todoItem);
+}
 </script>
 
 <template>
   <div class="todo__tasks">
-    <h3 class="todo__title">Задачи</h3>
-    <TodoItem></TodoItem>
+    <h3 class="todo__title" @click="addTodoItem">Задачи</h3>
+    <TodoItem v-for="todoItem in todoList" :key="todoItem.id" :todoItem="todoItem"/>
     <TodoModal
         v-if="isShowModal"
         :button-text="buttonText"
