@@ -1,5 +1,5 @@
 <script setup>
-import TodoButton from "@/components/todoButton.vue";
+import TodoButton from "@/components/TodoButton.vue";
 import CancelIcon from '@/components/icons/CancelIcon.vue';
 
 defineProps({

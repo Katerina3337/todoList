@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import todoList from '@/components/todoList.vue';
-import todoFilters from '@/components/todoFilters.vue';
+import TodoList from '@/components/TodoList.vue';
+import TodoFilters from '@/components/TodoFilters.vue';
 
 </script>
 
@@ -9,8 +9,8 @@ import todoFilters from '@/components/todoFilters.vue';
     <div class="container">
       <h1 class="todo__title">todo<span>List</span></h1>
       <div class="todo__tabs">
-        <todoFilters></todoFilters>
-        <todoList></todoList>
+        <TodoFilters></TodoFilters>
+        <TodoList></TodoList>
       </div>
     </div>
   </div>

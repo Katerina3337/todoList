@@ -1,11 +1,11 @@
 <script setup>
-import todoFilter from '@/components/todoFilter.vue';
+import TodoFilter from '@/components/TodoFilter.vue';
 </script>
 
 <template>
   <div class="todo__filters">
     <h3 class="todo__filters-title">Фильтры</h3>
-    <todoFilter></todoFilter>
+    <TodoFilter></TodoFilter>
   </div>
 
 </template>

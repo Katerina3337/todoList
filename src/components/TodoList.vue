@@ -1,6 +1,6 @@
 <script setup>
-import todoItem from '@/components/todoItem.vue';
-import todoButton from '@/components/todoButton.vue';
+import TodoItem from '@/components/TodoItem.vue';
+import TodoButton from '@/components/TodoButton.vue';
 import TodoModal from '@/components/TodoModal.vue';
 import {ref} from "vue";
 
@@ -17,14 +17,14 @@ const closeModal = () => {
 <template>
   <div class="todo__tasks">
     <h3 class="todo__title">Задачи</h3>
-    <todoItem></todoItem>
-    <todoModal
+    <TodoItem></TodoItem>
+    <TodoModal
         v-if="isShowModal"
         :button-text="buttonText"
         @close-modal="closeModal"
     />
     <div>
-      <todoButton class="todo__button" @click="showModal"></todoButton>
+      <TodoButton class="todo__button" @click="showModal"></TodoButton>
     </div>
   </div>
 </template>

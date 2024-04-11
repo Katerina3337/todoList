@@ -2,12 +2,20 @@
 import EditIcon from '@/components/icons/EditIcon.vue';
 import CheckboxIcon from "@/components/icons/CheckboxIcon.vue";
 import CheckedIcon from "@/components/icons/CheckedIcon.vue";
+import CircleIcon from '@/components/icons/CircleIcon.vue';
+import CircleCheckedIcon from '@/components/icons/CircleCheckedIcon.vue';
 import TodoModal from '@/components/TodoModal.vue';
 
 import { ref } from 'vue';
 
 const isShowModal = ref(false);
 const buttonText = ref('Редактировать');
+const isTaskDone = ref(false);
+
+const changeTaskStatus = () => {
+  isTaskDone.value = !isTaskDone.value;
+}
+
 const showModal = () => {
   isShowModal.value = true;
 }
@@ -17,8 +25,14 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="todo__item">
-    <p class="todo__task">Task text</p>
+  <div class="todo__item" :class="{'done-task': isTaskDone}">
+    <div class="todo__task-wrapper">
+      <div class="todo__icons">
+        <CircleIcon class="todo__icon" v-if="!isTaskDone" @click="changeTaskStatus"/>
+        <CircleCheckedIcon class="todo__icon" v-else @click="changeTaskStatus"/>
+      </div>
+      <p class="todo__task">Task text</p>
+    </div>
     <div class="todo__icons">
       <EditIcon class="todo__icon todo__edit-icon" @click="showModal"/>
       <CheckboxIcon class="todo__icon todo__delete-icon"/>
@@ -45,6 +59,23 @@ const closeModal = () => {
   margin-bottom: 20px;
   background-color: #2f2d36;
   border-radius: 10px;
+}
+
+.done-task {
+  opacity: 0.5;
+}
+
+.todo__task-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.todo__icons {
+  margin-right: 1rem;
+}
+
+.todo__icon {
+  fill: var(--color-filter-text);
 }
 
 .todo__task {

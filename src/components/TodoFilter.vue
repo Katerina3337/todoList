@@ -9,7 +9,7 @@ import CircleCheckedIcon from '@/components/icons/CircleCheckedIcon.vue';
       <CircleIcon class="todo__icon"></CircleIcon>
       <CircleCheckedIcon class="todo__icon"/>
     </div>
-    <p class="todo__filter-text">dvvdvdr</p>
+    <p class="todo__filter-text">Выполненные</p>
   </div>
 </template>
 
